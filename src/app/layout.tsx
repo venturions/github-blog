@@ -1,4 +1,7 @@
 import "./globals.css";
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Github Blog",
@@ -12,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${nunito.className} bg-base-background`}>
+        {children}
+      </body>
     </html>
   );
 }
