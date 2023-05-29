@@ -1,5 +1,9 @@
+import { Header } from "@/components/Header";
 import "./globals.css";
 import { Nunito } from "next/font/google";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -16,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunito.className} bg-base-background`}>
-        {children}
+        <Header />
+        <div className="mx-auto my-0 w-full max-w-screen-lg max-lg:max-w-screen-md max-md:max-w-screen-sm">
+          {children}
+        </div>
       </body>
     </html>
   );

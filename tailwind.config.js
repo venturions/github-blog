@@ -18,6 +18,7 @@ module.exports = {
       "base-profile": "#0B1B2B",
       "base-background": "#071422",
       "base-input": "#040F1A",
+      "header-background": "#0C243C",
     },
     screens: {
       xs: "480px",
@@ -25,8 +26,17 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
+      "2xl": "1536px",
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        profileCard: "0px 2px 28px rgba(0, 0, 0, 0.2)",
+      },
+      lineHeight: {
+        snug: 1.3,
+        normal: 1.6,
+      },
+    },
   },
   plugins: [],
 };
