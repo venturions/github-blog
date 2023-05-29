@@ -1,27 +1,36 @@
 import Image from "next/image";
-import avatar from "../../assets/avatar.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faBuilding,
+  faCalendarDay,
+  faChevronLeft,
+  faComment,
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
-export function ProfileCard() {
+export function PostInfoCard() {
   return (
     <div className="relative -mt-14 flex h-52 items-center justify-between gap-8 rounded-md bg-base-profile p-10 shadow-profileCard max-md:h-full max-md:flex-col max-sm:mx-4">
-      <div className="h-36 w-36">
-        <Image src={avatar} alt={"Foto do seu avatar do GitHub"} />
-      </div>
       <div className="flex flex-1 flex-col gap-2">
-        <div className="flex items-center justify-between max-xs:flex-col max-xs:gap-2">
-          <h1 className="text-2xl leading-normal text-base-title">
-            Cameron Williamson
-          </h1>
+        <div className="flex items-center justify-between max-xs:gap-2">
+          <Link href="/">
+            <button className="flex items-center gap-2">
+              <FontAwesomeIcon
+                className="text-blue"
+                icon={faChevronLeft}
+                size="xs"
+              />
+              <label className="cursor-pointer text-xs font-bold uppercase leading-normal text-blue">
+                Voltar
+              </label>
+            </button>
+          </Link>
           <button className=" flex items-center gap-2">
-            <label className="text-xs font-bold uppercase leading-normal text-blue">
-              Github
+            <label className="cursor-pointer text-xs font-bold uppercase leading-normal text-blue">
+              Ver no GitHub
             </label>
             <FontAwesomeIcon
               className="text-blue"
@@ -30,12 +39,12 @@ export function ProfileCard() {
             />
           </button>
         </div>
-        <p className="text-gray-500 text-base font-normal leading-normal text-base-text">
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </p>
-        <div className="mt-6 flex gap-6 text-base-subtitle max-md:justify-between max-sm:flex-col max-sm:justify-center">
+        <div className="mt-5">
+          <h1 className="text-2xl font-bold leading-snug text-base-title">
+            JavaScript data types and data structures
+          </h1>
+        </div>
+        <div className="mt-6 flex gap-8 text-base-subtitle max-md:justify-between max-xs:flex-col">
           <div className="flex items-center gap-2 max-xs:justify-center">
             <FontAwesomeIcon
               className="text-base-label"
@@ -48,18 +57,18 @@ export function ProfileCard() {
           <div className="flex items-center gap-2 max-xs:justify-center">
             <FontAwesomeIcon
               className="text-base-label"
-              icon={faBuilding}
+              icon={faCalendarDay}
               size="lg"
             />
-            <span>Rocketseat</span>
+            <span>Há 1 dia</span>
           </div>
           <div className="flex items-center gap-2 max-xs:justify-center">
             <FontAwesomeIcon
               className="text-base-label"
-              icon={faUserGroup}
+              icon={faComment}
               size="lg"
             />
-            <span>32 seguidores</span>
+            <span>5 comentários</span>
           </div>
         </div>
       </div>

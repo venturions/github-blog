@@ -16,3 +16,7 @@
 body {
   -webkit-font-smoothing: antialised;
 }
+
+input {
+  border: none;
+}
