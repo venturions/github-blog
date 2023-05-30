@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GitHub Blog
 
-## Getting Started
+Aplicação que consome a API do GitHub para exibir informações do meu usuário e criar posts baseados nos issues do meu repositório do Github Blog.
 
-First, run the development server:
+## Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Utilizei as seguintes tecnologias e frameworks no desenvolvimento do projeto:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **React**
+- **Next.js 13**
+- **TypeScript**
+- **Tailwind CSS**
+- **React Hook Form**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Conceitos Utilizados
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Durante o desenvolvimento do projeto, foram aplicados os seguintes conceitos:
 
-## Learn More
+- **Design Responsivo**: A aplicação é adaptável a diferentes tamanhos de tela, proporcionando uma experiência consistente em dispositivos móveis e desktops.
+- **Acessibilidade**: Foram adotadas boas práticas de acessibilidade, para garantir que pessoas com deficiência possam utilizar a aplicação de forma inclusiva.
+- **Consumo de API**: Através da API do GitHub, foram obtidas informações do usuário e listados os issues do repositório, permitindo a criação de posts baseados nesses issues.
+- **Clean Code**: No desenvolvimento do projeto, foram adotados princípios de clean code, como organização do código em componentes reutilizáveis, nomenclatura clara, simplicidade, legibilidade e manutenibilidade.
 
-To learn more about Next.js, take a look at the following resources:
+## Instalação e Execução
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para instalar a aplicação, siga as etapas abaixo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone o repositório: `git clone https://github.com/venturions/github-blog.git`
+2. Acesse o diretório raiz do projeto no terminal.
+3. Execute o comando `npm install` para instalar as dependências necessárias.
 
-## Deploy on Vercel
+Para executar a aplicação:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. No terminal, dentro do diretório raiz do projeto, execute o comando `npm run dev`.
+2. Acesse `http://localhost:3000/` em seu navegador.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Certifique-se de ter o Node.js e o npm instalados em seu sistema antes de prosseguir com a instalação e execução da aplicação.
