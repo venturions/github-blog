@@ -29,16 +29,18 @@ export function ProfileCard({ user }: ProfileCardProps) {
           <h1 className="text-2xl leading-normal text-base-title">
             {user?.name}
           </h1>
-          <button className=" flex items-center gap-2">
-            <label className="text-xs font-bold uppercase leading-normal text-blue">
-              Github
-            </label>
-            <FontAwesomeIcon
-              className="text-blue"
-              icon={faArrowUpRightFromSquare}
-              size="xs"
-            />
-          </button>
+          <a target="_blank" href={user?.html_url}>
+            <button className=" flex items-center gap-2">
+              <label className="cursor-pointer text-xs font-bold uppercase leading-normal text-blue">
+                Github
+              </label>
+              <FontAwesomeIcon
+                className="text-blue"
+                icon={faArrowUpRightFromSquare}
+                size="xs"
+              />
+            </button>
+          </a>
         </div>
         <p className="text-gray-500 text-base font-normal leading-normal text-base-text">
           {user?.bio}
