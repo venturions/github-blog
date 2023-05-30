@@ -5,21 +5,19 @@ import headerRightEffect from "../../assets/header-right-effect.svg";
 
 export function Header() {
   return (
-    <header className="flex h-72 w-full items-center justify-between bg-header-background max-lg:justify-center">
+    <header className="flex h-72 w-auto items-center justify-between bg-header-background max-lg:justify-center">
       <Image
-        className="max-lg:hidden"
+        className="h-auto w-auto max-lg:hidden"
         src={headerLeftEffect}
-        width={371}
-        height={236}
         alt={""}
+        priority={true}
       />
       <Image src={blogLogo} height={98} alt={""} />
       <Image
-        className="max-lg:hidden"
+        className="h-auto w-auto max-lg:hidden"
         src={headerRightEffect}
-        width={409}
-        height={188}
         alt={""}
+        priority={true}
       />
     </header>
   );
