@@ -1,17 +1,17 @@
-import { User } from "@/types/users";
+import { User } from '@/types/users'
 
-export async function fetchUserData(onFinally?: () => void): Promise<User> {
+export async function getUsers(onFinally?: () => void): Promise<User> {
   try {
-    const response = await fetch("https://api.github.com/users/venturions", {
-      cache: "no-store",
-    });
-    const data: User = await response.json();
-    return data;
+    const response = await fetch('https://api.github.com/users/venturions', {
+      cache: 'no-store',
+    })
+    const data: User = await response.json()
+    return data
   } catch (error) {
-    throw error;
+    throw error
   } finally {
     if (onFinally) {
-      onFinally();
+      onFinally()
     }
   }
 }

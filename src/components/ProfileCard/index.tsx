@@ -1,15 +1,15 @@
-import Image from "next/image";
+import Image from 'next/image'
 import {
   faArrowUpRightFromSquare,
   faBuilding,
   faUserGroup,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { User } from "@/types/users";
+} from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { User } from '@/types/users'
 
 interface ProfileCardProps {
-  user: User;
+  user: User
 }
 
 export function ProfileCard({ user }: ProfileCardProps) {
@@ -19,7 +19,7 @@ export function ProfileCard({ user }: ProfileCardProps) {
         <Image
           className="rounded-lg"
           src={user?.avatar_url}
-          alt={"Foto do seu avatar do GitHub"}
+          alt={'Foto do seu avatar do GitHub'}
           width={148}
           height={148}
         />
@@ -29,7 +29,7 @@ export function ProfileCard({ user }: ProfileCardProps) {
           <h1 className="text-2xl leading-normal text-base-title">
             {user?.name}
           </h1>
-          <a target="_blank" href={user?.html_url}>
+          <a target="_blank" href={user?.html_url} rel="noreferrer">
             <button className=" flex items-center gap-2">
               <label className="cursor-pointer text-xs font-bold uppercase leading-normal text-blue">
                 Github
@@ -74,5 +74,5 @@ export function ProfileCard({ user }: ProfileCardProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

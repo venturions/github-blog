@@ -1,9 +1,16 @@
 import { User } from "./users";
 
-export interface IssuesPostData {
+export interface Reactions {
+  url: string;
   total_count: number;
-  incomplete_results: boolean;
-  items: Post[];
+  "+1": number;
+  "-1": number;
+  laugh: number;
+  hooray: number;
+  confused: number;
+  heart: number;
+  rocket: number;
+  eyes: number;
 }
 
 export interface Post {
@@ -38,15 +45,8 @@ export interface Post {
   score: number;
 }
 
-export interface Reactions {
-  url: string;
+export interface IssuesPostData {
   total_count: number;
-  "+1": number;
-  "-1": number;
-  laugh: number;
-  hooray: number;
-  confused: number;
-  heart: number;
-  rocket: number;
-  eyes: number;
+  incomplete_results: boolean;
+  items: Post[];
 }

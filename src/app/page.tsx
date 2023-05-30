@@ -1,55 +1,55 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { fetchPostsData } from "@/api/posts";
-import { fetchUserData } from "@/api/users";
-import { ProfileCard } from "@/components/ProfileCard";
-import { PublicationCard } from "@/components/PublicationCard";
-import { SearchBar } from "@/components/SearchBar";
-import { Post } from "@/types/posts";
-import { User } from "@/types/users";
+import { useEffect, useState } from 'react'
+import { getPosts } from '@/api/posts'
+import { getUsers } from '@/api/users'
+import { ProfileCard } from '@/components/ProfileCard'
+import { PublicationCard } from '@/components/PublicationCard'
+import { SearchBar } from '@/components/SearchBar'
+import { Post } from '@/types/posts'
+import { User } from '@/types/users'
 
 export default function Home() {
-  const [user, setUser] = useState<User | null>(null);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchValue, setSearchValue] = useState("");
+  const [user, setUser] = useState<User | null>(null)
+  const [posts, setPosts] = useState<Post[]>([])
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [searchValue, setSearchValue] = useState('')
 
   useEffect(() => {
-    async function fetchData() {
+    async function getUsersData() {
       try {
-        const userData = await fetchUserData();
-        setUser(userData);
-        setIsLoading(false);
+        const userData = await getUsers()
+        setUser(userData)
+        setIsLoading(false)
       } catch (error) {
-        console.error("Ocorreu um erro ao buscar os dados do usuário:", error);
+        console.error('Ocorreu um erro ao buscar os dados do usuário:', error)
       }
     }
-    fetchData();
-  }, []);
+    getUsersData()
+  }, [])
 
   useEffect(() => {
-    async function fetchData() {
+    async function getPostsData() {
       try {
-        const postData = await fetchPostsData();
-        setPosts(postData);
-        setIsLoading(false);
+        const postData = await getPosts()
+        setPosts(postData)
+        setIsLoading(false)
       } catch (error) {
-        console.error("Ocorreu um erro ao buscar os dados dos posts:", error);
+        console.error('Ocorreu um erro ao buscar os dados dos posts:', error)
       }
     }
-    fetchData();
-  }, []);
+    getPostsData()
+  }, [])
 
   const filterByTitle = (searchValue: string) => {
-    setSearchValue(searchValue);
-    const lowercaseSearchValue = searchValue.toLowerCase();
+    setSearchValue(searchValue)
+    const lowercaseSearchValue = searchValue.toLowerCase()
     const filtered = posts.filter((post) =>
-      post.title.toLowerCase().includes(lowercaseSearchValue)
-    );
-    setFilteredPosts(filtered);
-  };
+      post.title.toLowerCase().includes(lowercaseSearchValue),
+    )
+    setFilteredPosts(filtered)
+  }
 
   return (
     <section>
@@ -72,5 +72,5 @@ export default function Home() {
         </>
       )}
     </section>
-  );
+  )
 }

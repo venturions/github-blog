@@ -1,20 +1,60 @@
-import { PostInfoCard } from "@/components/PostInfoCard";
-import { PostInfoContent } from "@/components/PostInfoContent";
-import { ProfileCard } from "@/components/ProfileCard";
-import { PublicationCard } from "@/components/PublicationCard";
-import { SearchBar } from "@/components/SearchBar";
+"use client";
 
-export default function PostInfo() {
+import { getPost } from "@/api/posts";
+import { PostInfoCard } from "@/components/PostInfoCard";
+import { Post } from "@/types/posts";
+import { useEffect, useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+
+interface PostInfoProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function PostInfo({ params }: PostInfoProps) {
+  const [post, setPost] = useState<Post>({} as Post);
+
+  useEffect(() => {
+    async function getPostData() {
+      try {
+        const postData = await getPost(params.id);
+        setPost(postData);
+      } catch (error) {
+        console.error("Ocorreu um erro ao buscar os dados do usuário:", error);
+      }
+    }
+    getPostData();
+  }, [params.id]);
+
   return (
     <section>
-      <PostInfoCard />
-      <PostInfoContent />
-      {/* <SearchBar /> */}
-      {/* <div className="mb-6 mt-12 grid grid-cols-2 gap-8 max-md:grid-cols-1 max-sm:mx-4">
-        <PublicationCard />
-        <PublicationCard />
-        <PublicationCard />
-      </div> */}
+      <PostInfoCard postData={post} />
+      <div className="flex flex-col items-center gap-6 px-8 py-10 text-base font-bold leading-normal text-base-text">
+        <ReactMarkdown
+          components={{
+            code: ({ node, ...props }) => (
+              <div
+                style={{
+                  display: "block",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  borderRadius: "2px",
+                  gap: "8px",
+                  background: "#112131",
+                  padding: "16px",
+                  whiteSpace: "pre-wrap",
+                  overflowX: "auto",
+                  width: "100%",
+                }}
+                {...props}
+              />
+            ),
+          }}
+        >
+          {post.body}
+        </ReactMarkdown>
+      </div>
     </section>
   );
 }

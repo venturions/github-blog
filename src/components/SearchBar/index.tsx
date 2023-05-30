@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent } from 'react'
 
 interface SearchBarProps {
-  filterByTitle: (searchValue: string) => void;
-  numberOfPosts: number;
-  searchValue: string;
+  filterByTitle: (searchValue: string) => void
+  numberOfPosts: number
+  searchValue: string
 }
 
 export function SearchBar({
@@ -11,10 +11,10 @@ export function SearchBar({
   numberOfPosts,
   searchValue,
 }: SearchBarProps) {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    filterByTitle(newValue);
-  };
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value
+    filterByTitle(newValue)
+  }
 
   return (
     <div className="max-sm:mx-4">
@@ -35,5 +35,5 @@ export function SearchBar({
         />
       </div>
     </div>
-  );
+  )
 }

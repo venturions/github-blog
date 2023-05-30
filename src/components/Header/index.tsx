@@ -1,7 +1,7 @@
-import Image from "next/image";
-import blogLogo from "../../assets/blog-logo.svg";
-import headerLeftEffect from "../../assets/header-left-effect.svg";
-import headerRightEffect from "../../assets/header-right-effect.svg";
+import Image from 'next/image'
+import blogLogo from '../../assets/blog-logo.svg'
+import headerLeftEffect from '../../assets/header-left-effect.svg'
+import headerRightEffect from '../../assets/header-right-effect.svg'
 
 export function Header() {
   return (
@@ -9,16 +9,16 @@ export function Header() {
       <Image
         className="h-auto w-auto max-lg:hidden"
         src={headerLeftEffect}
-        alt={""}
+        alt={''}
         priority={true}
       />
-      <Image src={blogLogo} height={98} alt={""} />
+      <Image src={blogLogo} height={98} alt={''} />
       <Image
         className="h-auto w-auto max-lg:hidden"
         src={headerRightEffect}
-        alt={""}
+        alt={''}
         priority={true}
       />
     </header>
-  );
+  )
 }
