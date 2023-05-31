@@ -22,7 +22,7 @@ export default function PostInfo({ params }: PostInfoProps) {
       try {
         const postData = await getPost(params.id);
         setPost(postData);
-        setIsLoadingPostData(true);
+        setIsLoadingPostData(false);
       } catch (error) {
         console.error("Ocorreu um erro ao buscar os dados do usuário:", error);
       }
