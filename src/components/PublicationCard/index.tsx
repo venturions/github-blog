@@ -2,8 +2,6 @@ import { Post } from "@/types/posts";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import ReactMarkdown from "react-markdown";
-
 interface PublicationCardProps {
   post: Post;
 }
@@ -25,7 +23,7 @@ export function PublicationCard({ post }: PublicationCardProps) {
         </div>
         <div className="mt-5">
           <p className="line-clamp-4 h-24 overflow-ellipsis text-base leading-normal text-base-text">
-            <ReactMarkdown>{post?.body}</ReactMarkdown>,
+            {post?.body}
           </p>
         </div>
       </div>

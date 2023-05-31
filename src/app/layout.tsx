@@ -5,6 +5,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { ReactNode } from 'react'
 config.autoAddCss = false
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
